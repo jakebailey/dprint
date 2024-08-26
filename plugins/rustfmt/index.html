@@ -35,8 +35,7 @@
         </div>
       </div>
     </nav>
-    
-<section class="section" id="content">
+    <section class="section" id="content">
   <div class="columns">
     <aside class="menu column is-narrow" style="width: 210px">
       <ul class="menu-list">
@@ -54,10 +53,17 @@
         <li><a href="/plugins/json">JSON</a></li>
         <li><a href="/plugins/markdown">Markdown</a></li>
         <li><a href="/plugins/toml">TOML</a></li>
+        <li><a href="/plugins/pretty_yaml">Pretty YAML</a></li>
         <li><a href="/plugins/dockerfile">Dockerfile</a></li>
         <li><a href="/plugins/rustfmt">Rustfmt</a></li>
         <li><a href="/plugins/roslyn">Roslyn (C#/VB)</a></li>
+        <li><a href="/plugins/malva">Malva (CSS/SCSS/Sass/Less)</a></li>
+        <li><a href="/plugins/markup_fmt">Markup_fmt (HTML/Vue/Svelte/Astro)</a></li>
         <li><a href="/plugins/prettier">Prettier</a></li>
+        <li><a href="/plugins/biome">Biome (JS/TS/JSON)</a></li>
+        <li><a href="/plugins/pretty_graphql">Pretty GraphQL</a></li>
+        <li><a href="/plugins/ruff">Ruff (Python)</a></li>
+        <li><a href="/plugins/jupyter">Jupyter</a></li>
         <li><a href="/plugins/exec">Exec (Many CLIs)</a></li>
         <li><a href="/plugin-dev">Creating a Plugin</a></li>
       </ul>
@@ -70,16 +76,8 @@
   </ul>
 </nav>
 <h1>Rustfmt Plugin</h1>
-<p>Wrapper plugin that formats Rust code via <a href="https://github.com/rust-lang/rustfmt">rustfmt</a>.</p>
-<div class="message is-warning">
-  <div class="message-body">
-    This is a process plugin. Using this will cause the CLI to download, run, and communicate with a separate process that is not sandboxed (unlike Wasm plugins).
-  </div>
-</div>
-<h2>Install and Setup</h2>
-<p>Follow the instructions at <a href="https://github.com/dprint/dprint-plugin-rustfmt/releases/">https://github.com/dprint/dprint-plugin-rustfmt/releases/</a></p>
-<h2>Configuration</h2>
-<p>See documentation <a href="https://rust-lang.github.io/rustfmt/">here</a>.</p>
+<p>This plugin was deprecated in favour of <code>dprint-plugin-exec</code>, which can format with rustfmt.</p>
+<p>For instructions, see here: <a href="https://github.com/dprint/dprint-plugin-exec#example---rustfmt">https://github.com/dprint/dprint-plugin-exec#example---rustfmt</a></p>
 
     </div>
   </div>

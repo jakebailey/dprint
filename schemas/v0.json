@@ -5,6 +5,10 @@
   "description": "Schema for a dprint configuration file.",
   "type": "object",
   "properties": {
+    "$schema": {
+      "description": "The JSON schema reference. Normally you shouldn't bother to provide this as the dprint vscode editor extension will handle constructing the schema for you based on the plugins provided.",
+      "type": "string"
+    },
     "incremental": {
       "description": "Whether to format files only when they change.",
       "type": "boolean",
@@ -25,18 +29,15 @@
     },
     "lineWidth": {
       "description": "The width of a line the printer will try to stay under. Note that the printer may exceed this width in certain cases.",
-      "type": "number",
-      "default": 120
+      "type": "number"
     },
     "indentWidth": {
       "description": "The number of characters for an indent.",
-      "type": "number",
-      "default": 2
+      "type": "number"
     },
     "useTabs": {
       "description": "Whether to use tabs (true) or spaces (false) for indentation.",
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "newLineKind": {
       "description": "The kind of newline to use.",
@@ -85,5 +86,6 @@
   "additionalProperties": {
     "description": "Plugin configuration.",
     "type": "object"
-  }
+  },
+  "allowTrailingCommas": true
 }

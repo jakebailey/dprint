@@ -35,8 +35,7 @@
         </div>
       </div>
     </nav>
-    
-<section class="section" id="content">
+    <section class="section" id="content">
   <div class="columns">
     <aside class="menu column is-narrow" style="width: 210px">
       <ul class="menu-list">
@@ -54,10 +53,17 @@
         <li><a href="/plugins/json">JSON</a></li>
         <li><a href="/plugins/markdown">Markdown</a></li>
         <li><a href="/plugins/toml">TOML</a></li>
+        <li><a href="/plugins/pretty_yaml">Pretty YAML</a></li>
         <li><a href="/plugins/dockerfile">Dockerfile</a></li>
         <li><a href="/plugins/rustfmt">Rustfmt</a></li>
         <li><a href="/plugins/roslyn">Roslyn (C#/VB)</a></li>
+        <li><a href="/plugins/malva">Malva (CSS/SCSS/Sass/Less)</a></li>
+        <li><a href="/plugins/markup_fmt">Markup_fmt (HTML/Vue/Svelte/Astro)</a></li>
         <li><a href="/plugins/prettier">Prettier</a></li>
+        <li><a href="/plugins/biome">Biome (JS/TS/JSON)</a></li>
+        <li><a href="/plugins/pretty_graphql">Pretty GraphQL</a></li>
+        <li><a href="/plugins/ruff">Ruff (Python)</a></li>
+        <li><a href="/plugins/jupyter">Jupyter</a></li>
         <li><a href="/plugins/exec">Exec (Many CLIs)</a></li>
         <li><a href="/plugin-dev">Creating a Plugin</a></li>
       </ul>
@@ -92,15 +98,34 @@
 </li>
 <li>
 <p><a href="https://crates.io/">Cargo</a> (builds and installs the <a href="https://crates.io/crates/dprint">cargo package</a> from source):</p>
-<pre><code class="language-sh hljs language-bash">cargo install dprint
+<pre><code class="language-sh hljs language-bash"><span class="hljs-comment"># this will be slower since it builds from the source</span>
+cargo install --locked dprint
+</code></pre>
+</li>
+<li>
+<p><a href="https://deno.land">Deno</a>:</p>
+<p>For just your project, add a <a href="https://deno.land/manual/tools/task_runner">deno task</a> to your deno.json file:</p>
+<pre><code class="language-json hljs"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"tasks"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"fmt"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"deno task dprint fmt"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"fmt:check"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"deno task dprint check"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"dprint"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"deno run -A npm:dprint"</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Then run <code>deno task dprint init</code> to initialize and format by running: <code>deno task fmt</code></p>
+<p>Also, you could install it globally via Deno, but like npm it has a startup and memory cost since it needs to run Deno then run dprint. It's recommended to install it globally via another method.</p>
+<pre><code class="language-sh hljs language-bash">deno install -A npm:dprint
+dprint <span class="hljs-built_in">help</span>
 </code></pre>
 </li>
 <li>
 <p><a href="https://www.npmjs.com/">npm</a>:</p>
-<pre><code class="language-sh hljs language-bash">npm install dprint
+<pre><code class="language-sh hljs language-bash"><span class="hljs-comment"># for your project</span>
+npm install dprint
 npx dprint <span class="hljs-built_in">help</span>
 
-<span class="hljs-comment"># or install globally</span>
+<span class="hljs-comment"># or install globally (not recommended because it has a startup and memory cost)</span>
 npm install -g dprint
 dprint <span class="hljs-built_in">help</span>
 </code></pre>
@@ -111,13 +136,23 @@ dprint <span class="hljs-built_in">help</span>
 asdf install dprint latest
 </code></pre>
 </li>
+<li>
+<p><a href="https://aur.archlinux.org/packages/dprint">Arch Linux</a>:</p>
+<p>Install with any AUR helper, for example:</p>
+<pre><code class="language-sh hljs language-bash">paru -S dprint
+</code></pre>
+<p>or binaries</p>
+<pre><code class="language-sh hljs language-bash">paru -S dprint-bin
+</code></pre>
+</li>
 </ul>
 <p>For binaries and source, see the <a href="https://github.com/dprint/dprint/releases">GitHub releases</a>.</p>
-<h2>Editor Extensions</h2>
+<h2 id="editor-extensions" tabindex="-1"><a class="header-anchor" href="#editor-extensions">Editor Extensions</a></h2>
 <ul>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=dprint.dprint">Visual Studio Code</a></li>
 <li><a href="https://plugins.jetbrains.com/plugin/18192-dprint">IntelliJ</a> - Thanks to the developers at <a href="https://canva.com">Canva</a></li>
-<li>More to come!</li>
+<li>Neovim with <a href="https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dprint">nvim-lspconfig</a></li>
+<li>The <code>dprint lsp</code> subcommand (requires dprint 0.45+) provides code formatting over the language server protocol. This can be used to format in other editors.</li>
 </ul>
 <p>Next step: <a href="/setup">Setup</a></p>
 
